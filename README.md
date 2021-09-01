@@ -30,5 +30,5 @@ R package for sourcing, searching, and editing your project's .R scripts and oth
 
 ```{r setup, include=FALSE}
 this_file = "sourceR.Rmd" ; source(file.path("R","sourceR.R")); sourceR(); source_ram(); source_wd(this_file); 
-source_packages(c("dplyr", "readr", "stringr", "tidyr", "lubridate", "magrittr", "utf8", "readtext", "R.utils", "devtools", "rlang", "data.table", "xlsx", "keyring", "SPARQL", "httr", "jsonlite", "tidyverse"))
+source_packages(c("dplyr", "readr", "stringr", "tidyr", "lubridate", "magrittr", "utf8", "readtext"))
 ```
