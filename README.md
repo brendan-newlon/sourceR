@@ -9,7 +9,7 @@ R package for sourcing, searching, and editing your project's .R scripts and oth
 
 **Most enchanting features:**
 
-- Summon and source any .R files in your project /R directory or subdirectories with ```sourceR()```
+- Summon and source any .R files in your project /R directory or subdirectories with ```sourceR()``` or, if you're a ghoul, ```sourceR("path/to/wherever/ghouls/keep/their/r/scripts", exclude=c("spooky_noise.R", "big_red_button.R", "south_tower.R"))```
 - Conjure, install, and load packages in one line, eg ```source_packages(c("dplyr", "stringr", "readr"))```
 - Portend how much RAM to allocate automatically based on available system resources using ```source_ram()``` or specify configurations like ```source_ram(only_free=TRUE)``` or ```source_ram(percent_of_total=20)```
 - Magically configure the working directory with ```source_wd("myScript.Rmd")```
