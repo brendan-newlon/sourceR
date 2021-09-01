@@ -1,4 +1,5 @@
 #' sourceR
+#' 
 #' Manage project code by sourcing scripts selectively, recursively. By default it will load any .R file in the project's /R directory or subdirectory.
 #'
 #' @param source_dir The relative name of the directory within your project folder containing scripts to source.

@@ -1,4 +1,5 @@
 #' source_packages
+#' 
 #' Install and load multiple packages at once.
 #'
 #' @param pkgs A character vector of package names to install as needed and load to the environment.

@@ -1,4 +1,5 @@
 #' source_wd
+#' 
 #' Ensure the project root is set up correctly and create a global variable wd to represent the project root as working directory.
 #'
 #' @param this_file The name of the script calling the function. This uses here::i_am to set the project root correctly.

@@ -1,4 +1,5 @@
 #' source_ram
+#' 
 #' Allocate a portion of system RAM for R and/or Java to use.
 #'
 #' @param only_free If TRUE, only allocate the system's currently free memory.
