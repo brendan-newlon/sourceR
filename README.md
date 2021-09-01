@@ -12,7 +12,7 @@ R package for sourcing, searching, and editing your project's .R scripts and oth
 - Summon and source any .R files in your project /R directory or subdirectories with ```sourceR()```
 - Conjure, install, and load packages in one line, eg ```source_packages(c("dplyr", "stringr", "readr"))```
 - Portend how much RAM to allocate automatically based on available system resources using ```source_ram()``` or specify configurations like ```source_ram(only_free=TRUE)``` or ```source_ram(percent_of_total=20)```
-- Magically configure the working directory
+- Magically configure the working directory with ```source_wd("myScript.Rmd")```
 
 **What the future may hold...** (*ie. stay tuned; in development*) 
 - find/replace throughout all scripts in the /R directory or any subset
