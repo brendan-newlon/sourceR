@@ -1,4 +1,4 @@
-#' source_wd
+#' Configure the working directory
 #' 
 #' Ensure the project root is set up correctly and create a global variable wd to represent the project root as working directory.
 #'
