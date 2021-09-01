@@ -14,7 +14,7 @@ source_ram = function(only_free = T, percent_of_total = 20, mem_unit = "GiB", ro
   
   if(round_up){rounding = base::round } else {rounding = base::floor } 
   
-  if(mem_unit == "GiB"){ mem_unit_multiplier = 10240}
+  if(isTRUE(mem_unit == "GiB")){ mem_unit_multiplier = 10240}
   
   source_packages("memuse", show_loaded_packages = F, show_package_processes = F)
   mem = memuse::Sys.meminfo()
@@ -27,7 +27,7 @@ source_ram = function(only_free = T, percent_of_total = 20, mem_unit = "GiB", ro
     
     free = free_ram
     ## What if the free memory rounds down to zero?
-    if(free > 0){
+    if(isTRUE(free > 0)){
 
       
       # or what if it's greater than percent specified? 
@@ -46,7 +46,7 @@ source_ram = function(only_free = T, percent_of_total = 20, mem_unit = "GiB", ro
     free = free %>% 
       paste0("-Xmx", ., "m")
     use_memory = free
-    cat("Allocating", free_ram, "of RAM","\n" )
+    cat("Allocating", free_ram %>% gsub("\\.[0-9]*", "",.), mem_unit,"of RAM","\n" )
   } else {
     percent_ram = mem$totalram %>% gsub(paste0(" ",mem_unit), "", .) %>% 
       as.numeric() %>% {. * (percent_of_total/100)} %>% rounding
@@ -54,10 +54,8 @@ source_ram = function(only_free = T, percent_of_total = 20, mem_unit = "GiB", ro
     use = percent_ram * mem_unit_multiplier 
     use_memory = use %>% 
       paste0("-Xmx", ., "m")
-    cat("Allocating", percent_ram, "of RAM","\n" )
+    cat("Allocating", percent_ram%>% gsub("\\.[0-9]*", "",.), mem_unit,"of RAM","\n" )
   }
-  
-  
   
   
   #--------

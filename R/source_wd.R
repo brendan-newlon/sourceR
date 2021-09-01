@@ -14,6 +14,9 @@ source_wd = function(this_file) {
   
   # suppressMessages(here::i_am(file.path("..", this_file) ))
   suppressMessages(here::i_am(this_file ))
+  
+  cat("Setting working directory to", here(),"\n")
+  cat("Assigning working directory to the global variable 'wd'")
   # here() %T>% assign("wd", ., envir = .GlobalEnv)
   assign("wd", here(), envir = .GlobalEnv)
   setwd(wd)

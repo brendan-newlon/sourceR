@@ -51,7 +51,7 @@ sourceR = function(source_dir = "R",
   if(exclude_sourceR){sources = sources[!grepl("^sourceR.R$", sources)]}
   for (i in seq_along(sources)) {
     if(echo_files_sourced){
-    cat("sourcing script:", sources[i], "\n")}
+    cat("Sourcing script:", sources[i], "\n")}
     suppressMessages(
       source(
       file.path(sourcing_directory, sources[i]),
