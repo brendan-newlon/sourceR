@@ -1,4 +1,4 @@
-#' source_ram
+#' Allocate system RAM
 #' 
 #' Allocate a portion of system RAM for R and/or Java to use.
 #'

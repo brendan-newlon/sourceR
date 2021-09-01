@@ -1,15 +1,24 @@
-#' sourceR
-#' 
-#' Manage project code by sourcing scripts selectively, recursively. By default it will load any .R file in the project's /R directory or subdirectory.
+#' Automagically source scripts
 #'
-#' @param source_dir The relative name of the directory within your project folder containing scripts to source.
+#' sourceR helps to manage project code by sourcing scripts selectively,
+#' recursively. By default it will load any .R file in the project's /R
+#' directory or subdirectories. 
+#' 
+#' @param source_dir The relative name of the directory within your project
+#'   folder containing scripts to source.
 #' @param include_rmd TRUE to also source .Rmd files.
-#' @param exclude_dirs A character string or vector of directories to exclude from automatic sourcing.
-#' @param exclude_files A character string or vector of files that should not be sourced.
-#' @param recursive TRUE to source files in the source_dir and any directories within it, and so on.
-#' @param exclude_marked_exclude TRUE to avoid sourcing any script with a filename with an "_exclude" suffex, eg. "IncompleteScript_exclude.R"
-#' @param exclude_sourceR TRUE to skip reloading this function from source whenever the function is called. 
-#' @param echo_files_sourced TRUE to echo the list of files sourced to output/console.
+#' @param exclude_dirs A character string or vector of directories to exclude
+#'   from automatic sourcing.
+#' @param exclude_files A character string or vector of files that should not be
+#'   sourced.
+#' @param recursive TRUE to source files in the source_dir and any directories
+#'   within it, and so on.
+#' @param exclude_marked_exclude TRUE to avoid sourcing any script with a
+#'   filename with an "_exclude" suffex, eg. "IncompleteScript_exclude.R"
+#' @param exclude_sourceR TRUE to skip reloading this function from source
+#'   whenever the function is called.
+#' @param echo_files_sourced TRUE to echo the list of files sourced to
+#'   output/console.
 #'
 #' @return
 #' @export

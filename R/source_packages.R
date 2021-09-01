@@ -1,6 +1,4 @@
-#' source_packages
-#' 
-#' Install and load multiple packages at once.
+#' Install and load multiple packages at once
 #'
 #' @param pkgs A character vector of package names to install as needed and load to the environment.
 #' @param show_loaded_packages If TRUE, echo the list of packages loaded.
