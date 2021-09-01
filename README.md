@@ -4,7 +4,7 @@
 </p>
    
    
-# sourceR
+## sourceR
 R package for sourcing, searching, and editing your project's .R scripts and other resources
 
 - Summon and source any .R files in your project /R directory or subdirectories with ```sourceR()```
@@ -17,9 +17,9 @@ What it's future holds... (ie. stay tuned; in development)
 - temporarily gather related scripts together into an .Rmd to easily edit or debug a workflow, then cast the improved versions back to their original, separate script files
 
 
-How to use this package:
+# How to use this package:
 
-1. If you aren't loading sourceR with library() or install_github(), copy the script files from sourceR's /R directory into the /R directory of your project's root folder.
+1. If you aren't loading sourceR with ```library()``` or ```install_github()```, copy the script files from sourceR's /R directory into the /R directory of your project's root folder.
 2. Copy the code below to the top of your project script.
 3. Update the variable this_file to your script's filename. 
 4. Save additional scripts anywhere within your project's /R directory to source them all automatically.
