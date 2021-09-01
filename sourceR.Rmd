@@ -1,0 +1,17 @@
+---
+title: "SourceR"
+author: "Brendan Newlon"
+date: "9/1/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+this_file = "sourceR.Rmd" ; source(file.path("R","sourceR.R")); sourceR(); source_ram(); source_wd(this_file); 
+source_packages(c("dplyr", "readr", "stringr", "tidyr", "lubridate", "magrittr", "utf8", "readtext", "R.utils", "devtools", "rlang", "data.table", "xlsx", "keyring", "SPARQL", "httr", "jsonlite", "tidyverse"))
+```
+
+
+```{r}
+
+```
+
