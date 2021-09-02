@@ -22,7 +22,7 @@ R package for sourcing, searching, and editing your project's .R scripts and oth
 
 # How to use this package:
 
-1. ```install_github("https://github.com/brendan-newlon/sourceR")``` Or copy the script files from sourceR's /R directory into the /R directory of your project's root folder.
+1. ```install_github("https://github.com/brendan-newlon/sourceR")``` Alternately, copy MyProjectTemplate.zip or manually copy the script files from sourceR's /R directory into the /R directory of your project's root folder.
 2. Copy the code below to the top of your project script (and update the variable this_file to your script's filename). Scripts within your project's /R directory will source/run automatically.
 ```r 
 this_file = "sourceR.Rmd" ; source(file.path("R","sourceR.R")); sourceR(); source_ram(); source_wd(this_file); 
