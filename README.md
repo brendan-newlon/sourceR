@@ -32,3 +32,7 @@ R package for sourcing, searching, and editing your project's .R scripts and oth
 this_file = "sourceR.Rmd" ; source(file.path("R","sourceR.R")); sourceR(); source_ram(); source_wd(this_file); 
 source_packages(c("dplyr", "readr", "stringr", "tidyr", "lubridate", "magrittr", "utf8"))
 ```
+
+# Feeling lazy? 
+
+1. Download [MyProjectTemplate.zip](https://github.com/brendan-newlon/sourceR/blob/main/MyProjectTemplate.zip "Hufflepuff!"). Copy the unzipped folder as a template for new projects with sourceR built in to load the scripts in your /R directory automatically.
