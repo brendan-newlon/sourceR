@@ -40,7 +40,7 @@ whenever the function is called.}
 output/console.}
 }
 \value{
-
+Uses the source function to load and/or run scripts in the projects /R directory.
 }
 \description{
 sourceR helps to manage project code by sourcing scripts selectively,

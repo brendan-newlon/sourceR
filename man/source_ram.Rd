@@ -21,7 +21,7 @@ source_ram(
 \item{round_up}{If TRUE, it rounds decimals .5 and above up to the next whole number of GBs, otherwise rounds down.}
 }
 \value{
-
+Sets memory use option.
 }
 \description{
 Allocate a portion of system RAM for R and/or Java to use.

@@ -14,7 +14,7 @@ source_packages(pkgs, show_loaded_packages = T, show_package_processes = F)
 \item{show_package_processes}{If TRUE, echo messages about the installation processes.}
 }
 \value{
-
+Installs and loads the packages.
 }
 \description{
 Install and load multiple packages at once
