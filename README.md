@@ -15,19 +15,20 @@ R package for sourcing, searching, and editing your project's .R scripts and oth
 - Magically configure the working directory with ```source_wd("myScript.Rmd")```
 
 **What the future may hold...** (*ie. stay tuned; in development*) 
-- find/replace throughout all scripts in the /R directory or any subset
-- temporarily gather related scripts together into an .Rmd to easily edit or debug a workflow, then cast the improved versions back to their original, separate script files
+- Get source_packages() to handle install_github() and similar for repo links
+- Find/replace throughout all scripts in the /R directory or any subset
+- Temporarily gather related scripts together into an .Rmd to easily edit or debug a workflow, then cast the improved versions back to their original, separate script files
 
 
 # How to use this package:
 
 1. ```install_github("https://github.com/brendan-newlon/sourceR")``` Or copy the script files from sourceR's /R directory into the /R directory of your project's root folder.
 2. Copy the code below to the top of your project script (and update the variable this_file to your script's filename). Scripts within your project's /R directory will source/run automatically.
-```{r setup, include=FALSE}
+```r 
 this_file = "sourceR.Rmd" ; source(file.path("R","sourceR.R")); sourceR(); source_ram(); source_wd(this_file); 
 source_packages(c("dplyr", "readr", "stringr", "tidyr", "lubridate", "magrittr", "utf8"))
 ```
-3. Add or remove package names from the example of ```source_packages()``` to suit the needs of your project.
+3. Add or remove package names from the ```source_packages()``` vector above to suit the needs of your project.
 
 # Feeling lazy? 
 
