@@ -1,6 +1,6 @@
 
 <p align="left">
-  <img src="https://github.com/brendan-newlon/sourceR/blob/main/sourceR_logo_card1.png" width="60%" alt="sourcer logo. sourceR: R packages and script sources will magically appear">
+  <img src="https://github.com/brendan-newlon/sourceR/blob/main/logos/sourceR_logo_card1.png" width="60%" alt="sourcer logo. sourceR: R packages and script sources will magically appear">
 </p>
    
    
