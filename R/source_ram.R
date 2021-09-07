@@ -12,13 +12,13 @@
 #'
 #'
 #'
-source_ram = function(only_free = T, percent_of_total = 20, mem_unit = "GiB", round_up = T) {
+source_ram = function(only_free = T, percent_of_total = 25, mem_unit = "GiB", round_up = T) {
   if(round_up){rounding = base::round } else {rounding = base::floor }
   if(isTRUE(mem_unit == "GiB")){
-    mem_unit_multiplier = 10240
+    mem_unit_multiplier = 1024
   }
   if(isTRUE(mem_unit == "MiB")){
-    mem_unit_multiplier = .0010240
+    mem_unit_multiplier = .001024
   }
   source_packages("memuse", show_loaded_packages = F, show_package_processes = F)
   mem = memuse::Sys.meminfo()
@@ -34,7 +34,7 @@ source_ram = function(only_free = T, percent_of_total = 20, mem_unit = "GiB", ro
       free = free * mem_unit_multiplier
       # percent_limit = mem$totalram %>% gsub(paste0(" ",mem_unit), "", .) %>%
       #  as.numeric() %>% {. * (percent_of_total/100)}
-      percent_limit = as.numeric(gsub(paste0(" ",mem_unit), "", mem$totalram)) * (percent_of_total/100)
+      percent_limit = as.numeric(gsub(paste0(" ",mem_unit), "", mem$totalram)) * (percent_of_total/100) * mem_unit_multiplier
       if(free > percent_limit){
         free = percent_limit
       }
