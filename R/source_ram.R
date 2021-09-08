@@ -23,45 +23,28 @@ source_ram = function(only_free = T, percent_of_total = 25, mem_unit = "GiB", ro
   source_packages("memuse", show_loaded_packages = F, show_package_processes = F)
   mem = memuse::Sys.meminfo()
   if(only_free){
-    # free_ram = mem$freeram %>% as.character() %>% gsub(paste0(" ",mem_unit), "", .) %>%
-    #  as.numeric() %>%
-    #  rounding
     free_ram =  rounding(as.numeric(gsub("[ a-zA-Z]" , "", as.character(mem$freeram)) ) )
     free = free_ram
     ## What if the free memory rounds down to zero?
     if(isTRUE(free > 0)){
-      # or what if it's greater than percent specified?
       free = free * mem_unit_multiplier
-      # percent_limit = mem$totalram %>% gsub(paste0(" ",mem_unit), "", .) %>%
-      #  as.numeric() %>% {. * (percent_of_total/100)}
       percent_limit = as.numeric(gsub(paste0(" ",mem_unit), "", mem$totalram)) * (percent_of_total/100) * mem_unit_multiplier
       if(free > percent_limit){
         free = percent_limit
       }
       free_ram = free
     } else  {
-      # free_ram = mem$freeram %>% gsub(paste0(" ",mem_unit), "", .) %>%
-      # as.numeric() %>% signif(digits = 1)
       free_ram = signif(as.numeric(gsub(paste0(" ",mem_unit), "", mem$freeram)), digits = 1)
       free = free_ram * mem_unit_multiplier
     }
-    # free = free %>%
-    #  paste0("-Xmx", ., "m")
-    #
     free = paste0("-Xmx", free, "m")
     use_memory = free
-    # cat("Allocating", free_ram %>% gsub("\\.[0-9]*", "",.), mem_unit,"of RAM","\n" )
-    cat("Allocating", gsub("\\.[0-9]*", "",free_ram), mem_unit,"of RAM","\n" )
-  } else {
-    # percent_ram = mem$totalram %>% gsub(paste0(" ",mem_unit), "", .) %>%
-    #  as.numeric() %>% {. * (percent_of_total/100)} %>% rounding
+    cat("Allocating", gsub("\\.[0-9]*", "",free_ram), "MiB","of RAM for Java heap space","\n" )
+      } else {
     percent_ram = rounding(as.numeric(gsub(paste0(" ",mem_unit), "", mem$totalram)) * (percent_of_total/100))
     use = percent_ram * mem_unit_multiplier
-    # use_memory = use %>%
-    #  paste0("-Xmx", ., "m")
     use_memory = paste0("-Xmx", use, "m")
-    # cat("Allocating", percent_ram%>% gsub("\\.[0-9]*", "",.), mem_unit,"of RAM","\n" )
-    cat("Allocating", gsub("\\.[0-9]*", "",percent_ram), mem_unit,"of RAM","\n" )
+    cat("Allocating", gsub("\\.[0-9]*", "",use), "MiB","of RAM for Java heap space","\n"  )
   }
   #--------
   options(java.parameters = c("-XX:+UseConcMarkSweepGC", use_memory))
