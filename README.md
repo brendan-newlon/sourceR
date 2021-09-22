@@ -17,7 +17,7 @@ R package for sourcing, searching, and editing your project's .R scripts and oth
 **What the future may hold...** (*ie. stay tuned; in development*) 
 - Get source_packages() to handle install_github() and similar for repo links
 - Find/replace throughout all scripts in the /R directory or any subset
-- Temporarily gather related scripts together into an .Rmd to easily edit or debug a workflow, then cast the improved versions back to their original, separate script files
+- Temporarily ```summon()``` related scripts together into an .Rmd to easily edit or debug a workflow, then ```cast()``` the improved versions back to their original, separate script files or ```banish()``` the temporarily summoned document medly.
 
 
 # How to use this package:
