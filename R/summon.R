@@ -1,4 +1,4 @@
-#' Title
+#' Summon together the text of many files.
 #'
 #' @param files Optional - A vector of files to summon
 #' @param file_pattern The file pattern to look for if summoning from a directory, eg the file extension ".R$"
