@@ -1,3 +1,19 @@
+#' Title
+#'
+#' @param files Optional - A vector of files to summon
+#' @param file_pattern The file pattern to look for if summoning from a directory, eg the file extension ".R$"
+#' @param include_rmd Adds "|.Rmd$" to the file_pattern
+#' @param exclude_files A vector of files to exclude from being summoned
+#' @param exclude_marked_exclude TRUE to exclude any files in the directory with names ending in _exclude before the file extension
+#' @param exclude_summon TRUE to exclude the summon.R script file from being summoned
+#' @param directory The directory to search for matching files
+#' @param recursive Whether to search recursively through subdirectories
+#' @param summon_as_filetype What filetype to summon the files into, defaults to .Rmd with a block for each file.
+#' @param open_summoned TRUE to immediately open the resulting summoned file.
+#'
+#' @return Creates a file that pastes together the text content of all of the summoned files. If summon_as_filetype = "Rmd" this will be an Rmd file with one block for each file summoned.
+#' @export
+#'
 summon = function(
                    # --- Files --- #
                    files = "",
@@ -8,11 +24,10 @@ summon = function(
                    exclude_summon = T,
                    # --- Files in directory etc --- #
                    directory = "R",
-                   all_in_dir = F,
                    recursive = T,
-                   exclude_dirs = "",
+                   # exclude_dirs = "", # not yet implemented -- was in sourceR()....?
                    # --- Functions --- #
-                   functions = "", # feature request !!! (?)
+                   # functions = "", # feature request !!! (?)
                    # could we look back in the session / call stack to find when each function was loaded, and from where, and use that to pull in the text of the function?
                    # for functions in loaded packages, can we get that from wherever defined?
                    # --- What to do ? --- #
@@ -102,6 +117,7 @@ summon = function(
   ## Add the casting/banishing block to the end
   banish_cast_block = paste0(
     unblocked_comment_prefix, "Use banish() to close and delete this file or cast() to overwrite the summoned files with edits made to their corresponding blocks above.",
+    "\n\n##** BOTH FUNCTIONS ARE NOT ACTUALLY IMPLEMENTED YET - STAY TUNED! **##\n\n",
     "\n\n",
     block_dividers[1],
     unblocked_comment_prefix, "~~~*%$#&!%$*#@!&^%!#*!*~~~", "\n\n",
