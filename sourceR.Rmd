@@ -5,21 +5,39 @@ date: "9/1/2021"
 output: html_document
 ---
 
-1. If not loading sourceR as a package, copy the script files from sourceR's /R directory into the /R directory of your project's root folder.
-2. Copy the code below to the top of your project script.
-3. Update the variable this_file to your script's filename. 
-4. Save additional scripts anywhere within your project's /R directory to source them automatically.
-5. Add or remove package names from source_packages to suit the needs of your project.
+# INSTRUCTIONS
 
+1.  If not loading sourceR as a package, copy the script files from sourceR's /R directory into the /R directory of your project's root folder.
+2.  Copy the code below to the top of your project script.
+3.  Update the variable this_file to your script's filename.
+4.  Save additional scripts anywhere within your project's /R directory to source them automatically.
+5.  Add or remove package names from source_packages to suit the needs of your project.
 
 ```{r setup, include=FALSE}
 this_file = "sourceR.Rmd" ; source(file.path("R","sourceR.R")); sourceR(); source_ram(); source_wd(this_file); 
 source_packages(c("dplyr", "readr", "stringr", "tidyr", "lubridate", "magrittr", "utf8", "readtext", "R.utils", "devtools", "rlang", "data.table", "xlsx", "keyring", "SPARQL", "httr", "jsonlite", "tidyverse"))
 ```
 
-
 ```{r setup, include=FALSE}
 
 install_github("https://github.com/brendan-newlon/sourceR")
 
 ```
+
+# Planned development:
+
+## cast() 
+
+-   After calling code together with summon(), user can edit the summoned code in one page, and cast() the modified code back to the source file that the code was summoned from. This is convenient when needing to find/replace throughout your code where a particular function or variable appears.
+
+## summon_process()
+
+-   Like summon(), used to gather together source code, but specifically the code that is called within a wrapper function -- in waterfall order of appearance.
+
+    -   eg. for the process wrapper function do_things(){myFn01() ; myFn02()} we'd get blocks with the source code of the wrapper do_things(), then myFn01,() then myFn02() .
+
+-   Option to also summon the code of functions in loaded packages when those are called by the process. So if MyFn01() uses dplyr::filter() we'd have a section for the source code of filter()
+
+    -   Function calls are nested, but Rmd blocks are not. We should consider how it's arranged in eg. traceback() and other packages like lobstr::cst
+
+    -   Some functions are SPECIAL. How should summon() handle function calls like `%>%` or `??` ?
